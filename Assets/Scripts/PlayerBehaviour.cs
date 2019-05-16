@@ -15,6 +15,10 @@ public class PlayerBehaviour : MonoBehaviour
     GameObject laserPrefab = null;
     [SerializeField]
     private float laserSpeed = 15f;
+    [SerializeField]
+    private float delayBetweenShots = 0.05f;
+    Coroutine firingCoroutine = null;
+    private bool firing = false;
 
     float xMin = 0f;
     float xMinPadding = 2f;
@@ -38,9 +42,24 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void Fire()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && !firing)
+        {
+            firing = true;
+            firingCoroutine = StartCoroutine(FireContinuously());
+        }
+        if (Input.GetButtonUp("Fire1"))
+        {
+            StopCoroutine(firingCoroutine);
+            firing = false;
+        }
+    }
+
+    private IEnumerator FireContinuously()
+    {
+        while (true)
         {
             ShootLaser();
+            yield return new WaitForSeconds(delayBetweenShots);
         }
     }
 
