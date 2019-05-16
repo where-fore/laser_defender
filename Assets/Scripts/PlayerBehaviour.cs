@@ -5,10 +5,16 @@ using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
 {
+    
     [SerializeField]
     float shipXspeed = 10f;
     [SerializeField]
     float shipYspeed = 10f;
+
+    [SerializeField]
+    GameObject laserPrefab = null;
+    [SerializeField]
+    private float laserSpeed = 15f;
 
     float xMin = 0f;
     float xMinPadding = 2f;
@@ -19,12 +25,46 @@ public class PlayerBehaviour : MonoBehaviour
     float yMax = 0f;
     float yMaxPadding = 1f;
 
-    // Start is called before the first frame update
     void Start()
     {
         CreateMoveBoundaries();
     }
 
+    void Update()
+    {
+        MovePlayer();
+        Fire();
+    }
+
+    private void Fire()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            ShootLaser();
+        }
+    }
+
+    private void ShootLaser()
+    {
+        Vector3 spawnOffset = new Vector3(0,0,0);
+        Vector2 spawnPosition = transform.position + spawnOffset;
+
+        GameObject laser = Instantiate(laserPrefab, spawnPosition, Quaternion.identity);
+
+        laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, laserSpeed);
+    }
+
+    private void MovePlayer()
+    {
+        var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * shipXspeed;
+        var deltaY = Input.GetAxis("Vertical") * Time.deltaTime * shipYspeed;
+
+        var newXPos = Mathf.Clamp((transform.position.x + deltaX), xMin, xMax);
+        var newYPos = Mathf.Clamp((transform.position.y + deltaY), yMin, yMax);
+
+        transform.position = new Vector2(newXPos, newYPos);
+    }
+    
     private void CreateMoveBoundaries()
     {
         Camera mainGameCamera = Camera.main;
@@ -41,21 +81,4 @@ public class PlayerBehaviour : MonoBehaviour
         yMax = yMax - yMaxPadding;
 
     }   
-
-    // Update is called once per frame
-    void Update()
-    {
-        MovePlayer();
-    }
-
-    private void MovePlayer()
-    {
-        var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * shipXspeed;
-        var deltaY = Input.GetAxis("Vertical") * Time.deltaTime * shipYspeed;
-
-        var newXPos = Mathf.Clamp((transform.position.x + deltaX), xMin, xMax);
-        var newYPos = Mathf.Clamp((transform.position.y + deltaY), yMin, yMax);
-
-        transform.position = new Vector2(newXPos, newYPos);
-    }
 }
