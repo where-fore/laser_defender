@@ -24,9 +24,9 @@ public class PlayerBehaviour : MonoBehaviour
     private bool firing = false;
 
     float xMin = 0f;
-    float xMinPadding = 2f;
+    float xMinPadding = 0.6f;
     float xMax = 0f;
-    float xMaxPadding = 2f;
+    float xMaxPadding = 0.6f;
     float yMin = 0f;
     float yMinPadding = 1f;
     float yMax = 0f;
