@@ -2,6 +2,13 @@
 
 controls are floaty
 
+vertical bullets (cylinders) will make the player have to use the vertical axis
+
+change PlayClipAtPoint to Instantiate(clipPlayer, ..., ...) and have prefabbed audiosources with prerouted mixer groups
+
+better player death sfx
+
+
 content ideas
 ~~~~~~~~~~~~~~
 big enemy that shoots big lasers, destroy smaller enemies

@@ -5,17 +5,25 @@ using UnityEngine;
 public class EnemyBehaviour : MonoBehaviour
 {
     [Header("Weapon")]
-    [SerializeField]
-    private GameObject weapon = null;
-    [SerializeField]
-    Vector3 weaponProjetileOffset = new Vector3(0, 0, 0);
-    [SerializeField]
-    private float weaponProjectileSpeed = 15f;
+
+    [SerializeField] private GameObject weapon = null;
+    [SerializeField] Vector3 weaponProjetileOffset = new Vector3(0, 0, 0);
+    [SerializeField] private float weaponProjectileSpeed = 15f;
+
 
     [Header("VFX")]
-    [SerializeField]
-    private GameObject deathVFX = null;
-    private float deathVFXDuration = 1f;
+
+    [SerializeField] private GameObject deathVFX = null;
+    [SerializeField] private float deathVFXDuration = 1f;
+
+
+    [Header("SFX")]
+
+    [SerializeField] private AudioClip deathSFX = null;
+    [SerializeField] private float deathSFXVolume = 1f;
+    [SerializeField] private AudioClip[] fireSFX = null;
+    [SerializeField] private float fireSFXVolume = 1f;
+
 
     private float shotCounter = 0f;
     private float minTimeBetweenShots = 0.2f;
@@ -54,12 +62,34 @@ public class EnemyBehaviour : MonoBehaviour
         GameObject laser = Instantiate(weapon, spawnPosition, Quaternion.identity);
 
         laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -weaponProjectileSpeed);
+
+        FireSFX();
     }
+
     
     public void Kill()
     {
+        DeathVFX();
+
+        DeathSFX();
+
+        Destroy(gameObject);
+    }
+    
+    private void FireSFX()
+    {
+        AudioClip clipToPlay = fireSFX[Random.Range(0, fireSFX.Length)];
+        AudioSource.PlayClipAtPoint(clipToPlay, transform.position, fireSFXVolume);
+    }
+
+    private void DeathSFX()
+    {
+        AudioSource.PlayClipAtPoint(deathSFX, transform.position, deathSFXVolume);
+    }
+
+    private void DeathVFX()
+    {
         GameObject deathVFXObject = Instantiate(deathVFX, transform.position, Quaternion.identity);
         Destroy(deathVFXObject, deathVFXDuration);
-        Destroy(gameObject);
     }
 }

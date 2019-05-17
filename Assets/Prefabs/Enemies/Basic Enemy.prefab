@@ -129,6 +129,13 @@ MonoBehaviour:
   weaponProjectileSpeed: 15
   deathVFX: {fileID: 2671529360918088509, guid: 2bc646baedbff6b4da18e9e9c6464a7c,
     type: 3}
+  deathVFXDuration: 1
+  deathSFX: {fileID: 8300000, guid: 4442ac327b7e64e47819f87dcdc0da75, type: 3}
+  deathSFXVolume: 1
+  fireSFX:
+  - {fileID: 8300000, guid: 41538aedc0c6fbb4b8f1322e7d777108, type: 3}
+  - {fileID: 8300000, guid: 238792e04d8fef74fbad4f0b75ba936f, type: 3}
+  fireSFXVolume: 1
 --- !u!114 &5719730121483834651
 MonoBehaviour:
   m_ObjectHideFlags: 0

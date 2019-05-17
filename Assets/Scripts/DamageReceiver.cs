@@ -46,16 +46,16 @@ public class DamageReceiver : MonoBehaviour
 
     private void HandlePlayerHit(DamageDealer damageDealer)
     {
-        TakePlayerDamage(damageDealer.GetDamageValue());
+        DealPlayerDamage(damageDealer.GetDamageValue());
     }
     
     private void HandleEnemyHit(DamageDealer damageDealer)
     {
-        TakeEnemyDamage(damageDealer.GetDamageValue());
+        DealEnemyDamage(damageDealer.GetDamageValue());
     }
 
 
-    private void TakePlayerDamage(float damageToTake)
+    private void DealPlayerDamage(float damageToTake)
     {
         health -= damageToTake;
         if (health <= 0)
@@ -65,7 +65,7 @@ public class DamageReceiver : MonoBehaviour
 
     }
 
-    private void TakeEnemyDamage(float damageToTake)
+    private void DealEnemyDamage(float damageToTake)
     {
         health -= damageToTake;
         if (health <= 0)

@@ -5,23 +5,28 @@ using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
 {
-    
-    [SerializeField]
-    float shipXspeed = 10f;
-    [SerializeField]
-    float shipYspeed = 10f;
+    [Header("Movement")]
+
+    [SerializeField] float shipXspeed = 10f;
+    [SerializeField] float shipYspeed = 10f;
+
 
     [Header("Weapon")]
-    [SerializeField]
-    GameObject laserPrefab = null;
-    [SerializeField]
-    Vector3 weaponProjetileOffset = new Vector3(0, 0, 0);
-    [SerializeField]
-    private float laserSpeed = 15f;
-    [SerializeField]
-    private float delayBetweenShots = 0.05f;
-    Coroutine firingCoroutine = null;
-    private bool firing = false;
+
+    [SerializeField] GameObject laserPrefab = null;
+    [SerializeField] Vector3 weaponProjetileOffset = new Vector3(0, 0, 0);
+    [SerializeField] private float laserSpeed = 15f;
+    [SerializeField] private float delayBetweenShots = 0.05f;
+
+    [Header("Audio")]
+    [SerializeField] private AudioClip startFiringClip = null;
+    
+    [SerializeField] private float startFiringVolume = 0.2f;
+    [SerializeField] private AudioClip stopFiringClip = null;
+    [SerializeField] private float stopFiringVolume = 0.2f;
+    
+    [SerializeField] private AudioClip deathSFX = null;
+    [SerializeField] private float deathSFXVolume = 1f;
 
     float xMin = 0f;
     float xMinPadding = 0.6f;
@@ -32,9 +37,16 @@ public class PlayerBehaviour : MonoBehaviour
     float yMax = 0f;
     float yMaxPadding = 1f;
 
+    Coroutine firingCoroutine = null;
+    private bool firing = false;
+
+    private AudioSource myAudioSource = null;
+
+
     void Start()
     {
         CreateMoveBoundaries();
+        myAudioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -48,13 +60,31 @@ public class PlayerBehaviour : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && !firing)
         {
             firing = true;
+            PlayFiringSFX(true);
+
             firingCoroutine = StartCoroutine(FireContinuously());
         }
         if (Input.GetButtonUp("Fire1"))
         {
             StopCoroutine(firingCoroutine);
+
+            PlayFiringSFX(false);
             firing = false;
         }
+    }
+
+    private void PlayFiringSFX(bool firing)
+    {
+        if (firing)
+        {
+            myAudioSource.PlayOneShot(startFiringClip, startFiringVolume);
+        }
+        
+        if (!firing)
+        {
+            myAudioSource.PlayOneShot(stopFiringClip, stopFiringVolume);
+        }
+
     }
 
     private IEnumerator FireContinuously()
@@ -77,7 +107,14 @@ public class PlayerBehaviour : MonoBehaviour
 
     public void Kill()
     {
+        PlayDeathSFX();
+
         Destroy(gameObject);
+    }
+
+    private void PlayDeathSFX()
+    {
+        AudioSource.PlayClipAtPoint(deathSFX, transform.position, deathSFXVolume);
     }
 
     private void MovePlayer()
