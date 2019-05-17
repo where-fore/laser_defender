@@ -18,7 +18,9 @@ public class DamageReceiver : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+
         DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
+        if (!damageDealer) {return;}
 
         if (myTag == playerTag)
         {
@@ -35,7 +37,7 @@ public class DamageReceiver : MonoBehaviour
             if (damageDealer.GetDestroyEnemiesBool())
             {
                 HandleEnemyHit(damageDealer);
-                
+
                 damageDealer.Impact();
             }
         }

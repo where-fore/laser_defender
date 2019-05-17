@@ -113,6 +113,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: a4cb7fd14695e6b4f85f203bcf798a0b,
         type: 3}
+    - target: {fileID: 1125790462463226688, guid: 8180da22a352cef46897bea2da426f58,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1125790462463226688, guid: 8180da22a352cef46897bea2da426f58,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.6516693
+      objectReference: {fileID: 0}
+    - target: {fileID: 1125790462463226688, guid: 8180da22a352cef46897bea2da426f58,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.0047169924
+      objectReference: {fileID: 0}
     - target: {fileID: 4585334629222812194, guid: 8180da22a352cef46897bea2da426f58,
         type: 3}
       propertyPath: destroyPlayer

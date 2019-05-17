@@ -1,1 +1,8 @@
-remove methods from enemyBehaviour.cs to make a new DamageReceiver.cs
+
+
+
+
+content ideas
+~~~~~~~~~~~~~~
+big enemy that shoots big lasers, destroy smaller enemies
+enemies that reflect bullets
