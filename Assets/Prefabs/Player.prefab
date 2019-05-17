@@ -141,11 +141,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44166abff49eb2345b1ad3b8b597c736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipXspeed: 15
+  shipXspeed: 20
   shipYspeed: 15
   laserPrefab: {fileID: 8354169318582309868, guid: 44cd48f0caa11e7468ddd6179cad3ba2,
     type: 3}
-  laserSpawnOffset: {x: 0, y: 0.5, z: 0}
+  weaponProjetileOffset: {x: 0, y: 0, z: 0}
   laserSpeed: 20
   delayBetweenShots: 0.1
 --- !u!114 &4535731817027598047

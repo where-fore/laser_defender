@@ -1,6 +1,6 @@
 
 
-
+controls are floaty
 
 content ideas
 ~~~~~~~~~~~~~~
@@ -8,6 +8,7 @@ big enemy that shoots big lasers, destroy smaller enemies
 enemies that reflect bullets
 
 VFX
+~~~~~~~~~~~~~~
 Playerdeath vfx - bigger, lasts longer
 Playerhit vfx - maybe green
 enemy hit vfx - more visible(higher alpha)
