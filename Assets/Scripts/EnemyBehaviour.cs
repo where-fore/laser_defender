@@ -6,37 +6,51 @@ public class EnemyBehaviour : MonoBehaviour
 {
 
     [SerializeField]
-    private float health = 100;
+    private GameObject weapon = null;
+    [SerializeField]
+    private float weaponProjectileSpeed = 15f;
+
+    private float shotCounter = 0f;
+    private float minTimeBetweenShots = 0.2f;
+
+    private float maxTimeBetweenShots = 3f;
 
     void Start()
     {
-        
+        SetShotCounter();
     }
 
     void Update()
     {
-        
+        CountDownAndShoot();
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void SetShotCounter()
     {
-        DamageDealer damagedealer = other.gameObject.GetComponent<DamageDealer>();
-
-        TakeDamage(damagedealer.GetDamageValue());
-
-        damagedealer.Hit();
+        shotCounter = Random.Range(minTimeBetweenShots, maxTimeBetweenShots);
     }
 
-    private void TakeDamage(float damageTaken)
+    private void CountDownAndShoot()
     {
-        health -= damageTaken;
-        if (health <= 0)
+        shotCounter -= Time.deltaTime;
+        if (shotCounter <= 0f)
         {
-            Die();
+            Fire(weapon);
+            SetShotCounter();
         }
     }
+
+    private void Fire(GameObject weapon)
+    {
+        Vector3 spawnOffset = new Vector3(0f, -0.8f, 0f);
+        Vector2 spawnPosition = transform.position + spawnOffset;
+
+        GameObject laser = Instantiate(weapon, spawnPosition, Quaternion.identity);
+
+        laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -weaponProjectileSpeed);
+    }
     
-    private void Die()
+    public void Kill()
     {
         Destroy(gameObject);
     }

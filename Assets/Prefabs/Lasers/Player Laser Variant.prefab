@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 329680431457756338, guid: 8180da22a352cef46897bea2da426f58,
         type: 3}
       propertyPath: m_Name
-      value: Player Laser
+      value: Player Laser Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7256236058772669252, guid: 8180da22a352cef46897bea2da426f58,
         type: 3}
@@ -73,5 +73,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 26ab2a21d077f5b428f2ed8d426cc631,
         type: 3}
+    - target: {fileID: 4585334629222812194, guid: 8180da22a352cef46897bea2da426f58,
+        type: 3}
+      propertyPath: destroyEnemies
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4585334629222812194, guid: 8180da22a352cef46897bea2da426f58,
+        type: 3}
+      propertyPath: damage
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8180da22a352cef46897bea2da426f58, type: 3}

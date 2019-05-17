@@ -65,12 +65,17 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void ShootLaser()
     {
-        Vector3 spawnOffset = new Vector3(0,0,0);
+        Vector3 spawnOffset = new Vector3(0, 0.5f,0 );
         Vector2 spawnPosition = transform.position + spawnOffset;
 
         GameObject laser = Instantiate(laserPrefab, spawnPosition, Quaternion.identity);
 
         laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, laserSpeed);
+    }
+
+    public void Kill()
+    {
+        Destroy(gameObject);
     }
 
     private void MovePlayer()
