@@ -1,0 +1,1 @@
+fix serialized waveConfig on enemy prefab in EnemyPathing.cs
