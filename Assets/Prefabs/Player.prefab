@@ -251,7 +251,7 @@ MonoBehaviour:
   stopFiringClip: {fileID: 8300000, guid: 9899030d99141514d8765a41832b8657, type: 3}
   stopFiringVolume: 0.2
   deathSFX: {fileID: 8300000, guid: 660201a2e6ac09b4593dd52769f2c4d0, type: 3}
-  deathSFXVolume: 1
+  deathSFXVolume: 3
 --- !u!114 &4535731817027598047
 MonoBehaviour:
   m_ObjectHideFlags: 0

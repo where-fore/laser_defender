@@ -20,9 +20,9 @@ public class EnemyBehaviour : MonoBehaviour
     [Header("SFX")]
 
     [SerializeField] private AudioClip deathSFX = null;
-    [SerializeField] private float deathSFXVolume = 1f;
+    [SerializeField] [Range(0,1)] private float deathSFXVolume = 1f;
     [SerializeField] private AudioClip[] fireSFX = null;
-    [SerializeField] private float fireSFXVolume = 1f;
+    [SerializeField] [Range(0,1)]  private float fireSFXVolume = 1f;
 
 
     private float shotCounter = 0f;
@@ -79,12 +79,13 @@ public class EnemyBehaviour : MonoBehaviour
     private void FireSFX()
     {
         AudioClip clipToPlay = fireSFX[Random.Range(0, fireSFX.Length)];
-        AudioSource.PlayClipAtPoint(clipToPlay, transform.position, fireSFXVolume);
+
+        AudioSource.PlayClipAtPoint(clipToPlay, Camera.main.transform.position, fireSFXVolume);
     }
 
     private void DeathSFX()
     {
-        AudioSource.PlayClipAtPoint(deathSFX, transform.position, deathSFXVolume);
+        AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position, deathSFXVolume);
     }
 
     private void DeathVFX()

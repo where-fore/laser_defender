@@ -21,12 +21,12 @@ public class PlayerBehaviour : MonoBehaviour
     [Header("Audio")]
     [SerializeField] private AudioClip startFiringClip = null;
     
-    [SerializeField] private float startFiringVolume = 0.2f;
+    [SerializeField] [Range(0,1)]  private float startFiringVolume = 0.2f;
     [SerializeField] private AudioClip stopFiringClip = null;
-    [SerializeField] private float stopFiringVolume = 0.2f;
+    [SerializeField] [Range(0,1)]  private float stopFiringVolume = 0.2f;
     
     [SerializeField] private AudioClip deathSFX = null;
-    [SerializeField] private float deathSFXVolume = 1f;
+    [SerializeField] [Range(0,1)]  private float deathSFXVolume = 1f;
 
     float xMin = 0f;
     float xMinPadding = 0.6f;
@@ -40,13 +40,9 @@ public class PlayerBehaviour : MonoBehaviour
     Coroutine firingCoroutine = null;
     private bool firing = false;
 
-    private AudioSource myAudioSource = null;
-
-
     void Start()
     {
         CreateMoveBoundaries();
-        myAudioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -77,12 +73,12 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (firing)
         {
-            myAudioSource.PlayOneShot(startFiringClip, startFiringVolume);
+            AudioSource.PlayClipAtPoint(startFiringClip, Camera.main.transform.position, startFiringVolume);
         }
         
         if (!firing)
         {
-            myAudioSource.PlayOneShot(stopFiringClip, stopFiringVolume);
+            AudioSource.PlayClipAtPoint(stopFiringClip, Camera.main.transform.position, stopFiringVolume);
         }
 
     }
@@ -114,7 +110,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void PlayDeathSFX()
     {
-        AudioSource.PlayClipAtPoint(deathSFX, transform.position, deathSFXVolume);
+        AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position, deathSFXVolume);
     }
 
     private void MovePlayer()
