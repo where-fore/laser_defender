@@ -125,8 +125,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 103283939287453851, guid: e5a65d0f54a351f47a28867c00cec093, type: 3}
-  weaponSpawnOffset: {x: 0, y: -0.8, z: 0}
+  weaponProjetileOffset: {x: 0, y: 0, z: 0}
   weaponProjectileSpeed: 15
+  deathVFX: {fileID: 2671529360918088509, guid: 2bc646baedbff6b4da18e9e9c6464a7c,
+    type: 3}
 --- !u!114 &5719730121483834651
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,6 +12,10 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField]
     private float weaponProjectileSpeed = 15f;
 
+    [Header("VFX")]
+    [SerializeField]
+    private GameObject deathVFX = null;
+
     private float shotCounter = 0f;
     private float minTimeBetweenShots = 0.2f;
 
@@ -53,6 +57,8 @@ public class EnemyBehaviour : MonoBehaviour
     
     public void Kill()
     {
+        GameObject deathVFXObject = Instantiate(deathVFX, transform.position, Quaternion.identity);
+        Destroy(deathVFXObject, 1);
         Destroy(gameObject);
     }
 }
