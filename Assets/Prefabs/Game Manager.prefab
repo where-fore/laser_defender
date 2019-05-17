@@ -228,4 +228,6 @@ MonoBehaviour:
   waveConfigs:
   - {fileID: 11400000, guid: 0ddd57b0ba7d0cb4b8f1eb2b09b09249, type: 2}
   - {fileID: 11400000, guid: 686b08afbf5bca34ab36847fc9ca132d, type: 2}
+  - {fileID: 11400000, guid: bb4247cac10f2b840b59ce14b0ed6b60, type: 2}
   - {fileID: 11400000, guid: fd8c2aa2472c9004cb3a984f97823f58, type: 2}
+  looping: 0

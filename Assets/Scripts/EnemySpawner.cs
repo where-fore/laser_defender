@@ -9,29 +9,36 @@ public class EnemySpawner : MonoBehaviour
 
     private int startingWaveIndex = 0;
 
-    private void Start()
-    {
-        WaveConfig currentWave = waveConfigs[0];
+    [SerializeField]
+    private bool looping = false;
 
-        StartCoroutine(SpawnAllEnemiesInWave(currentWave));
+    private IEnumerator Start()
+    {
+        do
+        {
+            yield return StartCoroutine(SpawnAllWaves());
+        }
+        while (looping);
+    }
+
+    private IEnumerator SpawnAllWaves()
+    {
+        int wavesToSpawn = waveConfigs.Count;
+        for (int wavesSpawned = 0; wavesSpawned < wavesToSpawn; wavesSpawned ++)
+        {
+            WaveConfig currentWave = waveConfigs[wavesSpawned];
+            yield return StartCoroutine(SpawnAllEnemiesInWave(currentWave));
+        }
     }
 
     private IEnumerator SpawnAllEnemiesInWave(WaveConfig waveConfig)
     {
         int enemiesToSpawn = waveConfig.GetNumberOfEnemies();
-        
-
         for (int enemiesSpawned = 0; enemiesSpawned < enemiesToSpawn; enemiesSpawned ++)
         {
             SpawnEnemy(waveConfig);
-            
-            float maxSpawnTime = 10f;
-            float timeBetweenSpawns = waveConfig.GetTimeBetweenSpawns();
-            float randomVariationValue = waveConfig.GetRandomSpawnTimeOffset();
-            float randomVariation = Random.Range(-randomVariationValue, randomVariationValue);
-            timeBetweenSpawns = Mathf.Clamp(timeBetweenSpawns + randomVariation, 0f, maxSpawnTime);
 
-            yield return new WaitForSeconds(timeBetweenSpawns);
+            yield return new WaitForSeconds(CalculateSpawnTime(waveConfig));
         }
 
     }
@@ -45,5 +52,16 @@ public class EnemySpawner : MonoBehaviour
 
         var newEnemy = Instantiate(enemyPrefab, startingSpawnLocation, startingRotation);
         newEnemy.GetComponent<EnemyPathing>().SetWaveConfig(waveConfig);
+    }
+
+    private float CalculateSpawnTime(WaveConfig waveConfig)
+    {     
+        float maxSpawnTime = 10f;
+        float timeBetweenSpawns = waveConfig.GetTimeBetweenSpawns();
+        float randomVariationValue = waveConfig.GetRandomSpawnTimeOffset();
+        float randomVariation = Random.Range(-randomVariationValue, randomVariationValue);
+        timeBetweenSpawns = Mathf.Clamp(timeBetweenSpawns + randomVariation, 0f, maxSpawnTime);
+
+        return timeBetweenSpawns;
     }
 }

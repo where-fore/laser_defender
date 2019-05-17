@@ -16,7 +16,7 @@ public class WaveConfig : ScriptableObject
     [SerializeField]
     private int numberOfEnemies = 7;
     [SerializeField]
-    private float enemyMoveSpeed = 2f;
+    private float enemyMoveSpeedMultiplier = 1f;
 
     public GameObject GetEnemyPrefab() {return enemyPrefab;}
     public GameObject GetPathPrefab() {return pathPrefab;}
@@ -26,7 +26,7 @@ public class WaveConfig : ScriptableObject
     
     public int GetNumberOfEnemies() {return numberOfEnemies;}
     
-    public float GetEnemyMoveSpeed() {return enemyMoveSpeed;}
+    public float GetEnemyMoveSpeedMultiplier() {return enemyMoveSpeedMultiplier;}
     
     public List<Transform> GetWaypoints()
     {
