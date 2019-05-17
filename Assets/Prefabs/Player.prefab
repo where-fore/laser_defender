@@ -145,6 +145,7 @@ MonoBehaviour:
   shipYspeed: 15
   laserPrefab: {fileID: 8354169318582309868, guid: 44cd48f0caa11e7468ddd6179cad3ba2,
     type: 3}
+  laserSpawnOffset: {x: 0, y: 0.5, z: 0}
   laserSpeed: 20
   delayBetweenShots: 0.1
 --- !u!114 &4535731817027598047
@@ -159,4 +160,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7dcd7710b8c8bb419f7bff8b15e866d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 200
+  health: 1000

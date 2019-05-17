@@ -25,6 +25,8 @@ public class DamageReceiver : MonoBehaviour
             if (damageDealer.GetDestroyPlayerBool())
             {
                 HandlePlayerHit(damageDealer);
+                
+                damageDealer.Impact();
             }
         }
 
@@ -33,10 +35,10 @@ public class DamageReceiver : MonoBehaviour
             if (damageDealer.GetDestroyEnemiesBool())
             {
                 HandleEnemyHit(damageDealer);
+                
+                damageDealer.Impact();
             }
         }
-
-        damageDealer.Impact();
     }
 
 

@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
 {
-
+    [Header("Weapon")]
     [SerializeField]
     private GameObject weapon = null;
+    [SerializeField]
+    Vector3 weaponProjetileOffset = new Vector3(0, 0, 0);
     [SerializeField]
     private float weaponProjectileSpeed = 15f;
 
@@ -42,8 +44,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void Fire(GameObject weapon)
     {
-        Vector3 spawnOffset = new Vector3(0f, -0.8f, 0f);
-        Vector2 spawnPosition = transform.position + spawnOffset;
+        Vector2 spawnPosition = transform.position + weaponProjetileOffset;
 
         GameObject laser = Instantiate(weapon, spawnPosition, Quaternion.identity);
 

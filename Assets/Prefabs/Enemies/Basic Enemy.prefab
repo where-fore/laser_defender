@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 103283939287453851, guid: e5a65d0f54a351f47a28867c00cec093, type: 3}
+  weaponSpawnOffset: {x: 0, y: -0.8, z: 0}
   weaponProjectileSpeed: 15
 --- !u!114 &5719730121483834651
 MonoBehaviour:

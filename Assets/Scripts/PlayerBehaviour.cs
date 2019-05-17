@@ -11,8 +11,11 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField]
     float shipYspeed = 10f;
 
+    [Header("Weapon")]
     [SerializeField]
     GameObject laserPrefab = null;
+    [SerializeField]
+    Vector3 weaponProjetileOffset = new Vector3(0, 0, 0);
     [SerializeField]
     private float laserSpeed = 15f;
     [SerializeField]
@@ -58,17 +61,16 @@ public class PlayerBehaviour : MonoBehaviour
     {
         while (true)
         {
-            ShootLaser();
+            Fire(laserPrefab);
             yield return new WaitForSeconds(delayBetweenShots);
         }
     }
 
-    private void ShootLaser()
+    private void Fire(GameObject weapon)
     {
-        Vector3 spawnOffset = new Vector3(0, 0.5f,0 );
-        Vector2 spawnPosition = transform.position + spawnOffset;
+        Vector2 spawnPosition = transform.position + weaponProjetileOffset;
 
-        GameObject laser = Instantiate(laserPrefab, spawnPosition, Quaternion.identity);
+        GameObject laser = Instantiate(weapon, spawnPosition, Quaternion.identity);
 
         laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, laserSpeed);
     }
