@@ -39,7 +39,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         CountDownAndShoot();
     }
-
+    
     private void SetShotCounter()
     {
         shotCounter = Random.Range(minTimeBetweenShots, maxTimeBetweenShots);

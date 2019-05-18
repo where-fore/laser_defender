@@ -32,7 +32,7 @@ public class DamageReceiver : MonoBehaviour
             }
         }
 
-        else if (myTag == enemyTag)
+        if (myTag == enemyTag)
         {
             if (damageDealer.GetDestroyEnemiesBool())
             {

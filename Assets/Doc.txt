@@ -8,6 +8,8 @@ change PlayClipAtPoint to Instantiate(clipPlayer, ..., ...) and have prefabbed a
 
 better player death sfx
 
+when ships die, have a chance to shoot a bullet (to prevent staying still)
+
 
 content ideas
 ~~~~~~~~~~~~~~
