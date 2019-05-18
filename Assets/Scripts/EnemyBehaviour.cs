@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
 {
+    [SerializeField] private int scoreGiven = 100;
+
     [Header("Weapon")]
 
     [SerializeField] private GameObject weapon = null;
@@ -30,9 +32,12 @@ public class EnemyBehaviour : MonoBehaviour
 
     private float maxTimeBetweenShots = 3f;
 
+    private ScoreManager scoreManager = null;
+
     void Start()
     {
         SetShotCounter();
+        scoreManager = FindObjectOfType<ScoreManager>();
     }
 
     void Update()
@@ -72,6 +77,8 @@ public class EnemyBehaviour : MonoBehaviour
         DeathVFX();
 
         DeathSFX();
+
+        scoreManager.ModifyScore(scoreGiven);
 
         Destroy(gameObject);
     }

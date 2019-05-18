@@ -12,7 +12,6 @@ public class LevelManager : MonoBehaviour
 
     private float delayBeforeGameOver = 3f;
 
-
     public void LoadGameScene()
     {
         SceneManager.LoadScene(gameSceneString);
@@ -32,6 +31,7 @@ public class LevelManager : MonoBehaviour
 
     public void LoadStartMenuScene()
     {
+        FindObjectOfType<ScoreManager>().ResetGame();
         SceneManager.LoadScene(startMenuSceneString);
     }
 
@@ -43,4 +43,6 @@ public class LevelManager : MonoBehaviour
         // Add me for builds, remove me for editing
         //Application.Quit();
     }
+
+    public string GetStartMenuSceneString() {return startMenuSceneString;}
 }
