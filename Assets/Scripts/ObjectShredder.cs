@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class ObjectShredder : MonoBehaviour
 {
+    private string laserTag = "Laser";
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(collision.gameObject);
+        if (collision.gameObject.tag == laserTag)
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }
