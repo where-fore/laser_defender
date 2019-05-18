@@ -105,6 +105,8 @@ public class PlayerBehaviour : MonoBehaviour
     {
         PlayDeathSFX();
 
+        FindObjectOfType<LevelManager>().LoadGameOverScene();
+
         Destroy(gameObject);
     }
 

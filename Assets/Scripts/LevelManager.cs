@@ -10,6 +10,8 @@ public class LevelManager : MonoBehaviour
     private string gameOverSceneString = "Game Over Menu";
     private string startMenuSceneString = "Start Menu";
 
+    private float delayBeforeGameOver = 3f;
+
 
     public void LoadGameScene()
     {
@@ -18,6 +20,13 @@ public class LevelManager : MonoBehaviour
 
     public void LoadGameOverScene()
     {
+        StartCoroutine(WaitThenGameOver());
+    }
+
+    private IEnumerator WaitThenGameOver()
+    {
+        yield return new WaitForSeconds(delayBeforeGameOver);
+
         SceneManager.LoadScene(gameOverSceneString);
     }
 
