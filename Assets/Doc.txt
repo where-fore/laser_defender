@@ -1,23 +1,37 @@
 
-
+design
+~~~~~~~~~~
 controls are floaty
-
-vertical bullets (cylinders) will make the player have to use the vertical axis
-
-change PlayClipAtPoint to Instantiate(clipPlayer, ..., ...) and have prefabbed audiosources with prerouted mixer groups
-
-better player death sfx
-
-when ships die, have a chance to shoot a bullet (to prevent staying still)
+give enemies a better chance of reaching the end of the screen, instead of expecting them to die before the wave is finished - this will have the waves overlap and keep the player on their toes
+have a better tutorial - a wave that makes you move vertically, a wave that makes you move horizontally, a wave that makes you zig zig etc.
+avoid the flappy bird problem where the first waves are boring and it takes forever to get to the challenge
+    > spawn waves based partially on score? spawn [easy] if score <10000
+        > this makes score a malus to pick up
+            > could promote interesting strats
 
 
 content ideas
 ~~~~~~~~~~~~~~
-big enemy that shoots big lasers, destroy smaller enemies
+big enemy that shoots big lasers, destroy smaller enemies - a boss
 enemies that reflect bullets
+enemies that spawn enemies/bullets on death
+when any ship dies, have a chance to shoot a bullet (to prevent staying still)
+have random asteroids that come in and destroy both players and enemies
 
-VFX
+
+
+FX
 ~~~~~~~~~~~~~~
 Playerdeath vfx - bigger, lasts longer
 Playerhit vfx - maybe green
 enemy hit vfx - more visible(higher alpha)
+playerdeah sfx - not bad
+easier to tell when player gets hit - red flash, camera shake, sfx or all of the above
+healthbar on bottom of screen?
+
+
+
+
+code
+~~~~~~~~~~~~~~~
+change PlayClipAtPoint to Instantiate(clipPlayer, ..., ...) and have prefabbed audiosources with prerouted mixer groups
