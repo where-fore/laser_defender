@@ -141,5 +141,5 @@ public class PlayerBehaviour : MonoBehaviour
         yMax = mainGameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y;
         yMax = yMax - yMaxPadding;
 
-    }   
+    }
 }

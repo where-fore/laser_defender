@@ -5,12 +5,13 @@ using UnityEngine;
 public class DamageReceiver : MonoBehaviour
 {
     [SerializeField]
-    private float health = 1f;
+    private int health = 1;
 
     private string myTag = "";
 
     private string playerTag = "Player";
     private string enemyTag = "Enemy";
+    
     void Start()
     {
         myTag = gameObject.tag;
@@ -55,7 +56,7 @@ public class DamageReceiver : MonoBehaviour
     }
 
 
-    private void DealPlayerDamage(float damageToTake)
+    private void DealPlayerDamage(int damageToTake)
     {
         health -= damageToTake;
         if (health <= 0)
@@ -65,7 +66,7 @@ public class DamageReceiver : MonoBehaviour
 
     }
 
-    private void DealEnemyDamage(float damageToTake)
+    private void DealEnemyDamage(int damageToTake)
     {
         health -= damageToTake;
         if (health <= 0)
@@ -74,5 +75,6 @@ public class DamageReceiver : MonoBehaviour
         }
     }
 
+    public int GetHealth() {return health;}
 
 }
