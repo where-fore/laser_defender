@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78bdb639495cd4644b15e80752e78573, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 8
+  moveSpeed: 6
 --- !u!114 &5726376754829610998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,9 +147,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe8aad8b364af484291089097b8fd5da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 103283939287453851, guid: e5a65d0f54a351f47a28867c00cec093, type: 3}
+  scoreGiven: 100
+  weapon: {fileID: 2338947101945733228, guid: 43c402e7461a0224c8e7b6d49cb4392e, type: 3}
   weaponProjetileOffset: {x: 0, y: 0, z: 0}
-  weaponProjectileSpeed: 15
+  weaponProjectileSpeed: 7
   deathVFX: {fileID: 2671529360918088509, guid: 2bc646baedbff6b4da18e9e9c6464a7c,
     type: 3}
   deathVFXDuration: 1
@@ -171,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7dcd7710b8c8bb419f7bff8b15e866d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 1
 --- !u!114 &6460656896451873527
 MonoBehaviour:
   m_ObjectHideFlags: 0

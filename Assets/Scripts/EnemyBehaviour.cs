@@ -11,6 +11,9 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private GameObject weapon = null;
     [SerializeField] Vector3 weaponProjetileOffset = new Vector3(0, 0, 0);
     [SerializeField] private float weaponProjectileSpeed = 15f;
+    [SerializeField] private float minTimeBetweenShots = 0.2f;
+
+    [SerializeField] private float maxTimeBetweenShots = 3f;
 
 
     [Header("VFX")]
@@ -28,9 +31,7 @@ public class EnemyBehaviour : MonoBehaviour
 
 
     private float shotCounter = 0f;
-    private float minTimeBetweenShots = 0.2f;
 
-    private float maxTimeBetweenShots = 3f;
 
     private ScoreManager scoreManager = null;
 

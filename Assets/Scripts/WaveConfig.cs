@@ -5,18 +5,12 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Enemy Wave Config")]
 public class WaveConfig : ScriptableObject
 {
-    [SerializeField]
-    private GameObject enemyPrefab = null;
-    [SerializeField]
-    private GameObject pathPrefab = null;
-    [SerializeField]
-    private float timeBetweenSpawns = 0.5f;
-    [SerializeField]
-    private float randomSpawnTimeOffset = 0.3f;
-    [SerializeField]
-    private int numberOfEnemies = 7;
-    [SerializeField]
-    private float enemyMoveSpeedMultiplier = 1f;
+    [SerializeField] private GameObject enemyPrefab = null;
+    [SerializeField] private GameObject pathPrefab = null;
+    [SerializeField] private float timeBetweenSpawns = 0.5f;
+    [SerializeField] private float randomSpawnTimeOffset = 0.3f;
+    [SerializeField] private int numberOfEnemies = 7;
+    [SerializeField] private float enemyMoveSpeedMultiplier = 1f;
 
     public GameObject GetEnemyPrefab() {return enemyPrefab;}
     public GameObject GetPathPrefab() {return pathPrefab;}
