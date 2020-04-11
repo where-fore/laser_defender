@@ -94,8 +94,9 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
-    m_ShowResolutionOverlay: 1
     m_ExportTrainingData: 0
+    m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -127,6 +128,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 707135922}
     m_Modifications:
+    - target: {fileID: 2989463252423054084, guid: 0835576138216f5428fbc87cf407ffb7,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2989463252423054084, guid: 0835576138216f5428fbc87cf407ffb7,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2989463252423054084, guid: 0835576138216f5428fbc87cf407ffb7,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2989463252423054084, guid: 0835576138216f5428fbc87cf407ffb7,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3880069525757014597, guid: 0835576138216f5428fbc87cf407ffb7,
         type: 3}
       propertyPath: m_Name
@@ -237,26 +258,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 2989463252423054084, guid: 0835576138216f5428fbc87cf407ffb7,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2989463252423054084, guid: 0835576138216f5428fbc87cf407ffb7,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2989463252423054084, guid: 0835576138216f5428fbc87cf407ffb7,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2989463252423054084, guid: 0835576138216f5428fbc87cf407ffb7,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0835576138216f5428fbc87cf407ffb7, type: 3}
 --- !u!1 &551578805
@@ -303,10 +304,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 551578806}
     m_Modifications:
+    - target: {fileID: 283577685198273659, guid: 2df7fde92e8ed5844a79a4724a6a6879,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1798599922563947842, guid: 2df7fde92e8ed5844a79a4724a6a6879,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4850621804250115588, guid: 2df7fde92e8ed5844a79a4724a6a6879,
         type: 3}
       propertyPath: m_Name
       value: UI Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8487030036150557672, guid: 2df7fde92e8ed5844a79a4724a6a6879,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 9155972397942452836, guid: 2df7fde92e8ed5844a79a4724a6a6879,
         type: 3}
@@ -413,11 +429,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8487030036150557672, guid: 2df7fde92e8ed5844a79a4724a6a6879,
-        type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2df7fde92e8ed5844a79a4724a6a6879, type: 3}
 --- !u!224 &707135922 stripped
@@ -464,11 +475,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 832593043}
     m_Modifications:
-    - target: {fileID: 5132800912474953667, guid: 999e3adf02bcf5349aa09d1dc401e24f,
-        type: 3}
-      propertyPath: m_Name
-      value: Enemy Spawner
-      objectReference: {fileID: 0}
     - target: {fileID: 622684967545271923, guid: 999e3adf02bcf5349aa09d1dc401e24f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -523,6 +529,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5132800912474953667, guid: 999e3adf02bcf5349aa09d1dc401e24f,
+        type: 3}
+      propertyPath: m_Name
+      value: Enemy Spawner
       objectReference: {fileID: 0}
     - target: {fileID: 7942681509284655013, guid: 999e3adf02bcf5349aa09d1dc401e24f,
         type: 3}
@@ -603,11 +614,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 551578806}
     m_Modifications:
-    - target: {fileID: 1803041085859864995, guid: e407127b69f5e6a428f596990fbc09c0,
-        type: 3}
-      propertyPath: m_Name
-      value: Level Manager
-      objectReference: {fileID: 0}
     - target: {fileID: 1803041085859864993, guid: e407127b69f5e6a428f596990fbc09c0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -662,6 +668,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803041085859864995, guid: e407127b69f5e6a428f596990fbc09c0,
+        type: 3}
+      propertyPath: m_Name
+      value: Level Manager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e407127b69f5e6a428f596990fbc09c0, type: 3}
@@ -759,11 +770,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 551578806}
     m_Modifications:
-    - target: {fileID: 5688386026403631452, guid: 53925c822e481e84d8fd6ebda0857b56,
-        type: 3}
-      propertyPath: m_Name
-      value: Background Scroller
-      objectReference: {fileID: 0}
     - target: {fileID: 3144273274201622345, guid: 53925c822e481e84d8fd6ebda0857b56,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -818,6 +824,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688386026403631452, guid: 53925c822e481e84d8fd6ebda0857b56,
+        type: 3}
+      propertyPath: m_Name
+      value: Background Scroller
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53925c822e481e84d8fd6ebda0857b56, type: 3}
@@ -1002,7 +1013,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 707135922}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -1027,8 +1038,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: 0000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a1e39f573ce7f7749979e89b5854ef9f, type: 2}
@@ -1039,7 +1048,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4282804735
+    rgba: 4282870527
   m_fontColor: {r: 1, g: 0.41500705, b: 0.2783019, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -1362,11 +1371,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 551578806}
     m_Modifications:
-    - target: {fileID: 7439464381385816425, guid: f7a05e299823b9c4a9caaa622cabee37,
-        type: 3}
-      propertyPath: m_Name
-      value: Starfield
-      objectReference: {fileID: 0}
     - target: {fileID: 7439464381385816424, guid: f7a05e299823b9c4a9caaa622cabee37,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1421,6 +1425,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7439464381385816425, guid: f7a05e299823b9c4a9caaa622cabee37,
+        type: 3}
+      propertyPath: m_Name
+      value: Starfield
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7a05e299823b9c4a9caaa622cabee37, type: 3}

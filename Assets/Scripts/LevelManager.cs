@@ -38,10 +38,10 @@ public class LevelManager : MonoBehaviour
     public void QuitGame()
     {
         // Remove me for builds, add me for editing
-        EditorApplication.isPlaying = false;
+        //EditorApplication.isPlaying = false;
 
         // Add me for builds, remove me for editing
-        //Application.Quit();
+        Application.Quit();
     }
 
     public string GetStartMenuSceneString() {return startMenuSceneString;}
